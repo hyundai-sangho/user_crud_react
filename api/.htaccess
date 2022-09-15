@@ -1,0 +1,16 @@
+RewriteEngine On
+
+<!--
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+%{REQUEST_FILENAME}를 이용하여 요청된 주소에 해당하는 파일(-f)이나 디렉토리(-d) 가 있는지 확인하고,
+없을 경우 어떤 주소로 요청이 되었던지 간에(.) /index.php로 요청을 rewrite 한다.
+-->
+
+# Handle Front Controller...
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
